@@ -1,0 +1,61 @@
+import numpy as np
+
+x=np.array(([2, 9], [1, 5], [3, 6]), dtype=float) y = np.array(([92], [86], [89]), dtype=float)
+
+x= x/np.amax (x, axis=0)
+
+y =
+
+y/100
+
+def sigmoid (x):
+
+return 1/(1+np.exp(-x))
+
+def derivatives_sigmoid (x):
+
+return x*(1-x)
+
+epoch=5000
+
+1r=0.1
+
+inputlayer_neurons=2 hidden layer_neurons=3
+
+output_neurons = 1
+
+wh=np.random.uniform (size=(inputlayer_neurons,hidden layer_neurons)) bh=np.random.uniform(size=(1,hidden layer_neurons))
+
+wout=np.random. uniform(size=(hidden layer_neurons, output_neurons))
+
+bout=np.random.uniform (size=(1, output_neurons))
+
+for i in range (epoch) :
+
+hinpl=np.dot (x, wh)
+
+hinp=hinpl + bh
+
+hlayer_act sigmoid (hinp)
+
+outinpl=np.dot (hlayer_act, wout)
+
+outinp-outinpl+ bout output = sigmoid (outinp) outgrad = derivatives_sigmoid (output)
+
+EO=y-output
+
+d_output = E0* outgrad
+
+EH = d_output.dot (wout.T)
+
+hiddengrad = derivatives_sigmoid (hlayer_act)
+
+d_hiddenlayer = EH = hiddengrad
+
+wout + hlayer_act. T.dot (d_output) *Ir
+
+wh+x.T.dot (d_hiddenlayer)*Ir
+
+print ("Input: \n" + str(x))
+
+print ("Actual Output: \n" + str(y)) print("Predicted Output: \n", output)
